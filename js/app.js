@@ -14,7 +14,7 @@ Enemy.prototype.update = function(dt) {
     } //else - the enemy arrived to the end of the screen
 
     else {
-    this.x = 0;
+    this.x = -50;
 }
 };
 
@@ -39,11 +39,11 @@ Player.prototype.update = function () {
     }
 
     if(this.pressedKey === 'up' && this.y > 0) {
-        this.y -= 100;
+        this.y -= 90;
     }
 
-    if(this.pressedKey === 'down' && this.y > 400) {
-        this.y += 100;
+    if(this.pressedKey === 'down' && this.y < 400) {
+        this.y += 90;
     }
 
     this.pressedKey = null;
@@ -77,11 +77,9 @@ const allEnemies = [];
 let player = new Player();
 
 (function setEnemies() {
-    allEnemies.push(new Enemy(0, 20));
-    allEnemies.push(new Enemy(0, 100));
-    allEnemies.push(new Enemy(0, 150));
-    allEnemies.push(new Enemy(0, 240));
-    allEnemies.push(new Enemy(0, 300));
+    allEnemies.push(new Enemy(0, 50));
+    allEnemies.push(new Enemy(0, 140));
+    allEnemies.push(new Enemy(0, 230));
 }());
 
 document.addEventListener('keyup', function(e) {
