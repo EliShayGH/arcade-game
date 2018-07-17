@@ -21,9 +21,10 @@ Enemy.prototype.update = function(dt) {
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
-
+const characters = ['images/stan.png', 'images/eric.png',
+                    'images/kyle.png', 'images/kenny.png'];
 const Player = function() {
-    this.sprite = 'images/char-boy.png';
+    this.sprite = characters[Math.floor((Math.random() * 4))];
     this.x = 200;
     this.y = 400;
 };
