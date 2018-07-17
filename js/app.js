@@ -29,7 +29,7 @@ const Player = function() {
 };
 
 Player.prototype.update = function () {
-
+    let player = this;
     if(this.pressedKey === 'left' && this.x > 0) {
         this.x -= 100;
     }
@@ -53,9 +53,9 @@ Player.prototype.update = function () {
     }
 
     allEnemies.forEach(function(enemy) {
-        if ((this.x >= enemy.x - 45 && this.x <= enemy.x + 45) ||
-            (this.y >= enemy.y - 25 && this.y <= enemy.y + 25)) {
-                this.reset();
+        if ((player.x >= enemy.x - 45 && player.x <= enemy.x + 45) &&
+            (player.y >= enemy.y - 25 && player.y <= enemy.y + 25)) {
+                player.reset();
             }
     });
 };
@@ -78,7 +78,9 @@ let player = new Player();
 
 (function setEnemies() {
     allEnemies.push(new Enemy(0, 50));
+    allEnemies.push(new Enemy(200, 50));
     allEnemies.push(new Enemy(0, 140));
+    allEnemies.push(new Enemy(300, 140));
     allEnemies.push(new Enemy(0, 230));
 }());
 
