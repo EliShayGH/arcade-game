@@ -1,4 +1,4 @@
-# Eli Shay Portfolio page
+# Arcade Game Project
 
 In this project I present my [Arcade Game Project](https://rawgit.com/EliShayGH/arcade-game/master/index.html)<br/>
 
