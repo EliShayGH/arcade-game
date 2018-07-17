@@ -4,13 +4,18 @@ const Enemy = function(x, y) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
-    this.speed = Math.floor((Math.random() * 500)
+    this.speed = Math.floor((Math.random() * 500));
 };
 
-Enemy.prototype.move = function(dt) {
+Enemy.prototype.update = function(dt) {
 
-    this.x *= dt;
-    this.y *= dt;
+    if (this.x <= 500) {
+        this.x += this.speed * dt;
+    } //else - the enemy arrived to the end of the screen
+
+    else {
+    this.x = 0;
+}
 };
 
 Enemy.prototype.render = function() {
@@ -23,7 +28,7 @@ const Player = function() {
     this.y = 400;
 };
 
-Player.prototype.move = function () {
+Player.prototype.update = function () {
 
     if(this.pressedKey === 'left' && this.x > 0) {
         this.x -= 100;
@@ -52,7 +57,6 @@ Player.prototype.move = function () {
             (this.y >= enemy.y - 25 && this.y <= enemy.y + 25)) {
                 this.reset();
             }
-        }
     });
 };
 
@@ -60,8 +64,8 @@ Player.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.prototype.input = function (key) {
-    this.pressedKey = key;
+Player.prototype.handleInput = function (e) {
+    this.pressedKey = e;
 };
 
 Player.prototype.reset = function () {
@@ -80,8 +84,6 @@ let player = new Player();
     allEnemies.push(new Enemy(0, 300));
 }());
 
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
     const allowedKeys = {
         37: 'left',
