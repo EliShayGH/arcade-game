@@ -4,7 +4,7 @@ const Enemy = function(x, y) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
-    this.speed = Math.floor((Math.random() * 500));
+    this.speed = 100 + Math.floor((Math.random() * 300));
 };
 
 Enemy.prototype.update = function(dt) {
