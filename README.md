@@ -12,11 +12,11 @@ You can find my code in [GitHub](https://github.com/EliShayGH/arcade-game)
 
 ## Run the game:
 
-1. locally: <br>
+1. Locally: <br>
     * [Clone via Github](https://github.com/EliShayGH/arcade-game.git)
      / [Download a zip file](https://github.com/EliShayGH/arcade-game/archive/master.zip)
     * Open index.html in your browser
-2. [By link](https://rawgit.com/EliShayGH/arcade-game/master/index.html)
+2. [By link](https://elishaygh.github.io/arcade-game/)
 
 ## Instructions
 
